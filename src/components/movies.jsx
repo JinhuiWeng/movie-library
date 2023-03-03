@@ -7,6 +7,8 @@ import { deleteMovie, getMovies } from "../services/movieService";
 import { paginate } from "./../utils/paginate";
 import _ from "lodash";
 import SearchBox from "./common/searchBox";
+import MoviesTable from "./moviesTable";
+import Pagination from "./common/pagination";
 
 class Movies extends Component {
   state = {
@@ -137,6 +139,19 @@ class Movies extends Component {
             <p>Showing {totalCount} in the database.</p>
 
             <SearchBox value={searchQuery} onChange={this.handleSearch} />
+            <MoviesTable
+              movies={movies}
+              sortColumn={sortColumn}
+              onLike={this.handleLike}
+              onDelete={this.handleDelete}
+              onSort={this.handleSort}
+            />
+            <Pagination
+              itemsCount={totalCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
           </div>
         </div>
       </React.Fragment>

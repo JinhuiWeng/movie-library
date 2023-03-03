@@ -14,10 +14,9 @@ const ListGroup = ({
           onClick={() => onItemSelect(item)}
           key={item[valueProperty]} //work with map
           className={
-            "clickable" + item === selectedItem
-              ? "list-group-item active"
-              : "list-group-item"
+            item === selectedItem ? "list-group-item active" : "list-group-item"
           }
+          style={{ cursor: "pointer" }}
         >
           {item[textProperty]}
         </li>
@@ -28,8 +27,8 @@ const ListGroup = ({
 
 // default values for the props argument, which  will be changed if the prop property is passed.
 ListGroup.defaultProps = {
-    textProperty: "name",
-    valueProperty: "_id",
-}
+  textProperty: "name",
+  valueProperty: "_id",
+};
 
 export default ListGroup;
