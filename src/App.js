@@ -9,7 +9,6 @@ import NotFound from "./components/notFound";
 import RegisterForm from "./components/registerForm";
 import LoginForm from "./components/loginForm";
 import MovieForm from "./components/movieForm";
-import ProtectedRoute from "./components/common/protectedRoute";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
