@@ -28,6 +28,69 @@
   color: #61dafb;
 }
 
+* {
+  margin: 0px;
+}
+
+.navbar-brand {
+  margin-left: 16px;
+}
+
+#menu-items {
+  margin-left: 35px;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  margin:0;
+  padding: 0;
+}
+
+.row-content {
+  margin: 0;
+}
+
+.genre-list {
+  margin: 0;
+  height: 100vh;
+  width: 15%;
+  background-color: #eaeaea;
+}
+
+.list-group {
+  margin-top: 15px;
+}
+.list-group-item {
+  text-align: center;
+  background-color: #eaeaea;
+}
+
+.table-list {
+  width: 85%;
+  margin-left: 15px;
+}
+
+.btn-primary {
+  margin-top: 15px;
+}
+
+.table-p {
+  font-weight: 500;
+  margin: 20px 0;
+  letter-spacing: 1.1px;
+}
+
+.form-content {
+  width: 30%;
+  position: absolute;
+  left:15%;
+}
+
+.form-group {
+  padding: 0 0 10px 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

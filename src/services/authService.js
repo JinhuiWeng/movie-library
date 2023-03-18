@@ -5,6 +5,8 @@ import config from "../config.json";
 const apiEndpoint = config.apiUrl + "/auth";
 const tokenKey = "token";
 
+http.setJwt(getJwt());
+
 // catch/save jwt for each login auth
 export async function login(email, password) {
   const { data: jwt } = await http.post(apiEndpoint, {

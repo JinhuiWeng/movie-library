@@ -9,12 +9,13 @@ import _ from "lodash";
 import SearchBox from "./common/searchBox";
 import MoviesTable from "./moviesTable";
 import Pagination from "./common/pagination";
+import auth from "../services/authService";
 
 class Movies extends Component {
   state = {
     movies: [],
     genres: [],
-    pageSize: 6,
+    pageSize: 4,
     currentPage: 1,
     searchQuery: "",
     selectedGenre: null,
@@ -70,9 +71,32 @@ class Movies extends Component {
   handleLike = (movie) => {
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
+    const userName = auth.getCurrentUser().name;
+    let likedMovies =
+      localStorage.getItem(userName) !== null
+        ? JSON.parse(localStorage.getItem(userName))
+        : [];
 
     movies[index] = { ...movies[index] };
-    movies[index].liked = !movies[index].liked;
+
+    // return array of single movie if that movie is already liked
+    const isMovieLiked = likedMovies.filter(
+      (likedMovie) => likedMovie.title === movies[index].title
+    );
+
+    // check if array is empty or not
+    if (isMovieLiked.length !== 0) {
+      // if not, find movie and unlike
+      const likedMovieIndex = likedMovies.indexOf(isMovieLiked[0]);
+      likedMovies.splice(likedMovieIndex, 1);
+      localStorage.setItem(userName, JSON.stringify(likedMovies));
+    } else {
+      // else like movie
+      likedMovies.push(movies[index]);
+      localStorage.setItem(userName, JSON.stringify(likedMovies));
+    }
+
+    //just to trigger component reload
     this.setState({ movies });
   };
 
@@ -119,7 +143,7 @@ class Movies extends Component {
     const { totalCount, data: movies } = this.getPaginatedData();
     return (
       <React.Fragment>
-        <div className="row">
+        <div className="row row-content">
           {/* left side - genres list */}
           <div className="col-2 genre-list">
             <ListGroup
@@ -129,14 +153,16 @@ class Movies extends Component {
             />
           </div>
           {/* right side - movie list */}
-          <div className="col">
-            {user && (
+          <div className="col table-list">
+            {user && user.isAdmin && (
               <Link to="/movies/new" className="btn btn-primary">
                 New Movie
               </Link>
             )}
 
-            <p>Showing {totalCount} in the database.</p>
+            <p className="table-p">
+              Showing {totalCount} movies in the database.
+            </p>
 
             <SearchBox value={searchQuery} onChange={this.handleSearch} />
             <MoviesTable

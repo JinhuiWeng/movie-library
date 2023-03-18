@@ -1,7 +1,11 @@
 import http from "./httpService";
 import config from "../config.json";
 
+
 const apiEndpoint = config.apiUrl + "/movies";
+
+//set auth user
+http.setJwt(localStorage.getItem("token"));
 
 function movieUrl(id) {
   return `${apiEndpoint}/${id}`;
@@ -28,9 +32,6 @@ export function saveMovie(movie) {
   return http.post(apiEndpoint, movie);
 }
 
-// export function likeMovie(movie) {
-    
-// }
 
 export function deleteMovie(movieId) {
   return http.delete(movieUrl(movieId));

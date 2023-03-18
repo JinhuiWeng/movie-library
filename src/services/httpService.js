@@ -12,7 +12,7 @@ axios.interceptors.response.use(null, (error) => {
     if (!expectedError) {
         logger.log(error);
         toast.error("An unexpected error occurrred.");
-    }
+    } else toast.error(`An expected error ${error.response.status} occurrred.`);
 
     //returns a Promise object that is rejected with a given reason.
     return Promise.reject(error);
@@ -20,7 +20,8 @@ axios.interceptors.response.use(null, (error) => {
 
 function setJwt(jwt) {
     axios.defaults.headers.common["x-auth-token"] = jwt;
-}
+    // axios.defaults.headers.common["Authorization"] = jwt;
+  }
 //The header X-Auth-Token is designed to authenticate request that doesn't contain secure cookie
 
 

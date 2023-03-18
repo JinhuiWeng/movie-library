@@ -1,8 +1,15 @@
 import React from "react";
+import auth from "../../services/authService";
 
 const Like = (props) => {
-  let classes = "fa fa-heart";
-  if (!props.liked) classes += "-o";
+  const userName = auth.getCurrentUser().name;
+  const likedMovies = JSON.parse(localStorage.getItem(userName));
+
+  const isMovieLiked = likedMovies.filter(
+    (likedMovie) => likedMovie.title === props.title
+  );
+
+  let classes = isMovieLiked.length === 1 ? "fa fa-heart" : "fa fa-heart-o";
 
   return (
     <i
