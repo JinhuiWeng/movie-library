@@ -3,7 +3,11 @@ import auth from "../../services/authService";
 
 const Like = (props) => {
   const userName = auth.getCurrentUser().name;
-  const likedMovies = JSON.parse(localStorage.getItem(userName));
+
+  let likedMovies =
+    localStorage.getItem(userName) !== null
+      ? JSON.parse(localStorage.getItem(userName))
+      : [];
 
   const isMovieLiked = likedMovies.filter(
     (likedMovie) => likedMovie.title === props.title
