@@ -2,7 +2,7 @@
 
 An online movie library website that allows users to search and save movies. [Live Demo](https://movie-library-gules.vercel.app/)
 
-It consumes a mock API from https://github.com/JinhuiWeng/movie-library-api, which is a modified version from [Mosh Hamedani](https://github.com/mosh-hamedani/vidly-api-node.git) 
+It consumes a mock API from https://github.com/JinhuiWeng/movie-library-api, which is a modified version based on [Mosh Hamedani](https://github.com/mosh-hamedani/vidly-api-node.git) 
 
 ## Functionality
 - Unregistered User: Sort movie table, re-populate movie table by genre, search movie by name
