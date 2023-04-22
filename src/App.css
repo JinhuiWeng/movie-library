@@ -69,16 +69,20 @@
 
 @media screen and (max-width: 768px) {
   .genre-list {
+    position: absolute;
     width: 100%;
     height: auto;
   }
   .list-group {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     height: 50px;
   }
-  .list-group-item {
-    display:inline; 
+  .list-group li {
+    position: absolute;
+    width: 15%;
+    display: inline;
+    list-style: none;
   }
 }
 
