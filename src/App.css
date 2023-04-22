@@ -69,19 +69,23 @@
 
 @media screen and (max-width: 768px) {
   .genre-list {
+    display: flex;
     width: 100%;
     height: auto;
   }
   .list-group {
     display: flex;
-    list-style-type: none;
+    align-items: stretch;
+    justify-content: space-between;
     width: 100%;
-    flex-wrap: nowrap;
     margin: 10px 5px;
   }
   .list-group li {
-    width: 20%;
-    display: inline;
+    display: block;
+    list-style-type: none;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
   }
 }
 
