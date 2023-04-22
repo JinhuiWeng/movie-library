@@ -79,8 +79,6 @@
     height: 50px;
   }
   .list-group li {
-    position: absolute;
-    width: 15%;
     display: inline;
     list-style: none;
   }
