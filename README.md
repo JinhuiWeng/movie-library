@@ -18,4 +18,5 @@ It consumes my mock [Movie-Library-API](https://github.com/JinhuiWeng/movie-libr
 - Joi-browser
 - Front-end deployed with Vercel and back-end deployed with Fly.io
 
-<img width="999" alt="Movie Library" src="https://user-images.githubusercontent.com/121464684/227224187-35024544-477e-4b31-8a9a-f8adc69507bf.png">
+
+![Movie Library](https://user-images.githubusercontent.com/121464684/234023467-a68164e5-2d8a-4e72-be28-a504fd3dcf6b.jpeg)
